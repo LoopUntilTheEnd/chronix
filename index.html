@@ -12,8 +12,27 @@
         -->
         <title>Chronix Radio</title>
         <style>
+            html {
+                font-size: 62.5%;
+                overflow-x: hidden;
+            }
+            @media only screen and (max-width: 1280px) {
+                html {
+                    font-size: calc(16px + (18 - 16) * ((100vw - 300px) / (1280 - 320)));
+                }
+            }
+            @media (min-width: 1280px) and (max-width: 1600px) {
+                html {
+                    font-size: calc(18px + (20 - 18) * ((100vw - 1200px) / (1600 - 1280)));
+                }
+            }
+            @media only screen and (min-width: 1600px) {
+                html {
+                    font-size: calc(20px + (22 - 20) * ((100vw - 1600px) / (2400 - 1600)));
+                }
+            }
             body {
-                font-family:sans-serif;color:#fff;
+                font-family:sans-serif;color:#fff;               
             }
             .col-wrapper {
                 display:flex;
@@ -23,25 +42,30 @@
             }
             .col {
                 min-width:400px;
-                flex:0 0 33%;
+                flex:0 0 cacl(33% - 2rem);
+                padding: .5rem;
+            }
+            iframe {
+                width:100%;
+                min-width: 400px;
             }
         </style>
     </head>
-    <body style="background:#000;background-image: url('https://storage.googleapis.com/wzukusers/user-27172421/images/58b0c49153afeRYKxW1G/45-Hi-Tech-Wallpapers-For-Desktop-and-Laptops.jpg');background-size: cover;background-position: top center;">
+    <body style="background:#000;">
         <div class="col-wrapper">
             <div class="col">
-                <iframe scrolling="no" src="https://fastcast4u.com/player/chronixr/" height="100" width="100" style="border:0;min-height:400px;margin-top:2rem;" ></iframe>
+                <iframe scrolling="no" src="https://fastcast4u.com/player/chronixr/" height="100" width="100" style="width:100%;border:0;min-height:400px;margin-top:2rem;" ></iframe>
                 <br>
                 <iframe scrolling="no" src="https://fastcast4u.com/player/gebacher/" height="100" width="100" style="border:0;min-height:400px;margin-top:2rem;" ></iframe>
             </div>
             <div  class="col">
                 <div style="text-align:center;">
                     <h1 style="text-transform:uppercase;">
-                        <img src="https://storage.googleapis.com/wzukusers/user-27172421/images/59ea0ce7b501ejTpfRDs/ChroniX-Radio-Black--Red_d400.jpg" alt="Chronix Radio" />
-                        
+                        <img src="https://storage.googleapis.com/wzukusers/user-27172421/images/59ea0ce7b501ejTpfRDs/ChroniX-Radio-Black--Red_d400.jpg" alt="Chronix Radio" />                        
                     </h1>
                     <br>
                     <a style="color:red;" href="https://github.com/LoopUntilTheEnd/chronix">Edit on Github</a>
+                    <br>
                 </div>
                 <iframe scrolling="no" style="width:300px;height:389px;border: 0px; margin: 0px; padding: 0px;margin-top:2rem;margin:auto;display:block;" id="_radionomy_player_iframe" src="https://www.radionomy.com/en/radio/chronixradio-/export/?version=1.1&amp;url=chronixradio-&amp;type=medium&amp;autoplay=0&amp;volume=50&amp;color1=%23000000&amp;color2=%23ffffff&amp;language=en&amp;referer=http%3A%2F%2Fpreview-editor.domain.com%2Fextern%2Fembed-html%2Fembed-html.html%3FwzId%3Did1490854387897%26wzInstanceId%3Did1490854387897%26wzAppId%3Dembed_html_app%26wzAppV%3D1%26wzApiType%3Dapp%26wzDeviceType%3Ddesktop%26wzMode%3Dview%26wzSessionId%3D1582538807329%26wzEncodeParams%3DeyJ3ekN1cnJlbnRVcmwiOiJodHRwOi8vd3d3LmNocm9uaXhyYWRpby5uZXQvIiwid3pTaXplIjp7IndpZHRoIjozMDAsImhlaWdodCI6Mzg5fX0%253D" ></iframe>
             </div>

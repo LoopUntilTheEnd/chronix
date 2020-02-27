@@ -14,12 +14,12 @@
         <style>
             html {
                 font-size: 62.5%;
-                overflow-x: hidden;
-                height: 100%;
+                overflow-x: hidden;              
+                background:#000;
             }
             @media only screen and (max-width: 1280px) {
                 html {
-                    font-size: calc(16px + (18 - 16) * ((100vw - 300px) / (1280 - 320)));
+                    font-size: calc(16px + (18 - 16) * ((100vw - 280px) / (1280 - 320)));
                 }
             }
             @media (min-width: 1280px) and (max-width: 1600px) {
@@ -39,7 +39,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                width: 100%;
+
             }
             body:before {
                 content:'';
@@ -49,24 +49,38 @@
                 left: 0;
                 right: 0;
                 bottom:0;
-                background-image: url('bg.jpeg');background-size: cover; background-position: bottom center;
+                background-image: url('bg.jpeg');background-size: cover;background-attachment: fixed; background-position: bottom center;
                 opacity: 0.4;
                 z-index: -1;
-             
+
             }
-            .col-wrapper {
-                display:flex;
+            .col-wrapper {               
                 justify-content:space-around;
-                margin:3rem;
-                flex-wrap:wrap;
+                margin:0 2rem;              
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 1rem;
             }
             .col {
+                grid-column: 2 / 3;
+                grid-row: 1;
                 min-width:320px;
-                flex:0 0 calc(33% - 2rem);
+                /*flex:0 0 calc(33% - 2rem);*/
                 padding: .5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-wrap:wrap;
+            }
+            .col.left {
+                 grid-column: 1 / 2;
+            }
+            .col.right {
+                 grid-column: 3 / 4;
+            }
+            .col > .bottom {
+                align-items: flex-end;
+                flex: 0 0 100%;
             }
             .col > div {
                 flex: 0 0 100%;
@@ -75,6 +89,7 @@
                 width:100%;
                 min-width: 320px;
                 margin:auto;
+                display: block;
             }
             nav {
                 margin: auto;
@@ -90,19 +105,25 @@
                 text-transform: uppercase;
                 color:#fff;
                 display: block;
-                padding: 2rem 1rem;
+                padding:.5rem .5rem;
                 text-transform: uppercase;
                 white-space: nowrap;
                 text-decoration: none;
                 cursor: pointer;
+                font-size:.9rem;
             }
             nav a:hover{
-                background-color: #fff;
-                color:#000;
+                background-color: #fff !important;
+                color:#000 !important;
+            }
+            @media screen and (max-width: 1024px) { 
+                .col-wrapper { 
+                  display: block;   
+                }
             }
         </style>
     </head>
-    <body style="background:#000;">
+    <body>
         <div class="top">
             <nav>
                 <a style="color:red;" href="https://github.com/LoopUntilTheEnd/chronix">Edit on Github</a>
@@ -111,15 +132,8 @@
                 <a>Hell</a>
             </nav>                
         </div>
-        <div class="col-wrapper">            
-            <div class="col">
-                <div>
-                    <iframe scrolling="no" src="https://fastcast4u.com/player/chronixr/" height="100" width="100" style="width:100%;border:0;min-height:400px;margin-top:2rem;" ></iframe>
-                    <br>
-                    <iframe scrolling="no" src="https://fastcast4u.com/player/gebacher/" height="100" width="100" style="border:0;min-height:400px;margin-top:2rem;" ></iframe>
-                </div>
-            </div>
-            <div  class="col">
+        <div class="col-wrapper">  
+            <div  class="col main">
                 <div>
                     <div style="text-align:center;">
                         <h1 style="text-transform:uppercase;">
@@ -130,19 +144,26 @@
                         <br>
                     </div>
                     <iframe scrolling="no" style="min-width:auto !important;width:300px;height:389px;border: 0px; margin: 0px; padding: 0px;margin-top:2rem;margin:auto;display:block;" id="_radionomy_player_iframe" src="https://www.radionomy.com/en/radio/chronixradio-/export/?version=1.1&amp;url=chronixradio-&amp;type=medium&amp;autoplay=0&amp;volume=50&amp;color1=%23000000&amp;color2=%23ffffff&amp;language=en&amp;referer=http%3A%2F%2Fpreview-editor.domain.com%2Fextern%2Fembed-html%2Fembed-html.html%3FwzId%3Did1490854387897%26wzInstanceId%3Did1490854387897%26wzAppId%3Dembed_html_app%26wzAppV%3D1%26wzApiType%3Dapp%26wzDeviceType%3Ddesktop%26wzMode%3Dview%26wzSessionId%3D1582538807329%26wzEncodeParams%3DeyJ3ekN1cnJlbnRVcmwiOiJodHRwOi8vd3d3LmNocm9uaXhyYWRpby5uZXQvIiwid3pTaXplIjp7IndpZHRoIjozMDAsImhlaWdodCI6Mzg5fX0%253D" ></iframe>
-
+                </div>
+                <nav class="bottom" >
+                    <a style="background-color: #111;color:red;" href="https://www.paypal.com/donate/?token=W5dSOuxVXVWU_OhDnek7Q0mr0GnDZxlQ8ynHhvS9FMyYNTge_88YJcF62MijGamtjva5KW&country.x=CA&locale.x=CA">Give us some beer !</a>
+                </nav>                    
+            </div>
+            <div class="col left">
+                <div>
+                    <iframe scrolling="no" src="https://fastcast4u.com/player/chronixr/" height="100" width="100" style="width:100%;border:0;min-height:380px;margin-top:2rem;" ></iframe>
+                    <br>
+                    <iframe scrolling="no" src="https://fastcast4u.com/player/gebacher/" height="100" width="100" style="border:0;min-height:380px;margin-top:2rem;" ></iframe>
                 </div>
             </div>
-            <div  class="col">
+
+            <div  class="col right">
                 <div>
-                    <iframe scrolling="no" src="https://fastcast4u.com/player/chronixg/" height="100" width="100" style="border:0;min-height:400px;margin-top:2rem;" ></iframe>
+                    <iframe scrolling="no" src="https://fastcast4u.com/player/chronixg/" height="100" width="100" style="border:0;min-height:380px;margin-top:2rem;" ></iframe>
                     <br> 
-                    <iframe scrolling="no" src="https://www4.cbox.ws/box/?boxid=4312743&boxtag=A7AFyp" height="100" width="100" style="border:0;min-height:400px;margin-top:2rem;" ></iframe>
+                    <iframe scrolling="no" src="https://www4.cbox.ws/box/?boxid=4312743&boxtag=A7AFyp" height="100" width="100" style="border:0;min-height:380px;margin-top:2rem;" ></iframe>
                 </div> 
             </div>
         </div>
-        <nav style="background-color: #111;">
-                <a style="color:red;" href="https://www.paypal.com/donate/?token=W5dSOuxVXVWU_OhDnek7Q0mr0GnDZxlQ8ynHhvS9FMyYNTge_88YJcF62MijGamtjva5KW&country.x=CA&locale.x=CA">Give us some beer !</a>
-        </nav>    
     </body>
 </html>

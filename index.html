@@ -15,6 +15,7 @@
             html {
                 font-size: 62.5%;
                 overflow-x: hidden;
+                height: 100%;
             }
             @media only screen and (max-width: 1280px) {
                 html {
@@ -32,50 +33,80 @@
                 }
             }
             body {
-                font-family:sans-serif;color:#fff;               
+                position: relative;
+                font-family:sans-serif;color:#fff;       
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+            }
+            body:before {
+                content:'';
+                position: absolute;
+                top:auto;
+                height: 100%;
+                left: 0;
+                right: 0;
+                bottom:0;
+                background-image: url('bg.jpeg');background-size: cover; background-position: bottom center;
+                opacity: 0.4;
+                z-index: -1;
+             
             }
             .col-wrapper {
                 display:flex;
-                justify-content:space-between;
+                justify-content:space-around;
                 margin:3rem;
                 flex-wrap:wrap;
             }
             .col {
-                min-width:400px;
+                min-width:320px;
                 flex:0 0 calc(33% - 2rem);
                 padding: .5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
+            .col > div {
+                flex: 0 0 100%;
+            }
             iframe {
                 width:100%;
-                min-width: 400px;
+                min-width: 320px;
                 margin:auto;
             }
             nav {
                 margin: auto;
-                max-width: 1400px;
+                max-width: 600px;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                justify-content: space-around;
             }
-            nav ul, na li{
-                margin:0;padding: 0;list-style-type: none;
+            nav {
+                margin:0 auto;padding: 0;list-style-type: none;
             }
-            nav li a {
+            nav a {
                 text-transform: uppercase;
                 color:#fff;
                 display: block;
                 padding: 2rem 1rem;
                 text-transform: uppercase;
+                white-space: nowrap;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            nav a:hover{
+                background-color: #fff;
+                color:#000;
             }
         </style>
     </head>
     <body style="background:#000;">
         <div class="top">
             <nav>
-                <a>Aboout</a>
+                <a style="color:red;" href="https://github.com/LoopUntilTheEnd/chronix">Edit on Github</a>
+                <a>About</a>
                 <a>Store</a>
                 <a>Hell</a>
             </nav>                
@@ -94,12 +125,11 @@
                         <h1 style="text-transform:uppercase;">
                             <img src="https://storage.googleapis.com/wzukusers/user-27172421/images/59ea0ce7b501ejTpfRDs/ChroniX-Radio-Black--Red_d400.jpg" alt="Chronix Radio" />                        
                         </h1>
-                        <br>
-                        <a style="color:red;" href="https://github.com/LoopUntilTheEnd/chronix">Edit on Github</a>
+                        <br>                       
                         <br>
                         <br>
                     </div>
-                    <iframe scrolling="no" style="width:300px;height:389px;border: 0px; margin: 0px; padding: 0px;margin-top:2rem;margin:auto;display:block;" id="_radionomy_player_iframe" src="https://www.radionomy.com/en/radio/chronixradio-/export/?version=1.1&amp;url=chronixradio-&amp;type=medium&amp;autoplay=0&amp;volume=50&amp;color1=%23000000&amp;color2=%23ffffff&amp;language=en&amp;referer=http%3A%2F%2Fpreview-editor.domain.com%2Fextern%2Fembed-html%2Fembed-html.html%3FwzId%3Did1490854387897%26wzInstanceId%3Did1490854387897%26wzAppId%3Dembed_html_app%26wzAppV%3D1%26wzApiType%3Dapp%26wzDeviceType%3Ddesktop%26wzMode%3Dview%26wzSessionId%3D1582538807329%26wzEncodeParams%3DeyJ3ekN1cnJlbnRVcmwiOiJodHRwOi8vd3d3LmNocm9uaXhyYWRpby5uZXQvIiwid3pTaXplIjp7IndpZHRoIjozMDAsImhlaWdodCI6Mzg5fX0%253D" ></iframe>
+                    <iframe scrolling="no" style="min-width:auto !important;width:300px;height:389px;border: 0px; margin: 0px; padding: 0px;margin-top:2rem;margin:auto;display:block;" id="_radionomy_player_iframe" src="https://www.radionomy.com/en/radio/chronixradio-/export/?version=1.1&amp;url=chronixradio-&amp;type=medium&amp;autoplay=0&amp;volume=50&amp;color1=%23000000&amp;color2=%23ffffff&amp;language=en&amp;referer=http%3A%2F%2Fpreview-editor.domain.com%2Fextern%2Fembed-html%2Fembed-html.html%3FwzId%3Did1490854387897%26wzInstanceId%3Did1490854387897%26wzAppId%3Dembed_html_app%26wzAppV%3D1%26wzApiType%3Dapp%26wzDeviceType%3Ddesktop%26wzMode%3Dview%26wzSessionId%3D1582538807329%26wzEncodeParams%3DeyJ3ekN1cnJlbnRVcmwiOiJodHRwOi8vd3d3LmNocm9uaXhyYWRpby5uZXQvIiwid3pTaXplIjp7IndpZHRoIjozMDAsImhlaWdodCI6Mzg5fX0%253D" ></iframe>
 
                 </div>
             </div>
@@ -111,5 +141,8 @@
                 </div> 
             </div>
         </div>
+        <nav style="background-color: #111;">
+                <a style="color:red;" href="https://www.paypal.com/donate/?token=W5dSOuxVXVWU_OhDnek7Q0mr0GnDZxlQ8ynHhvS9FMyYNTge_88YJcF62MijGamtjva5KW&country.x=CA&locale.x=CA">Give us some beer !</a>
+        </nav>    
     </body>
 </html>
